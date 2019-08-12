@@ -3,12 +3,15 @@
 let
 
   my-python-env = python-packages: with python-packages; [
-    jedi
-    rope
     autopep8
-    yapf
     black
+    cx_oracle
     flake8
+    jedi
+    jupyter
+    pip
+    rope
+    yapf
   ];
 
   pythonEnv = with pkgs; python36Full.withPackages my-python-env;
@@ -16,11 +19,12 @@ let
 in
 
 {
+  nixpkgs.config.allowUnfree = true;
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs;
     [
-      emacs
+      direnv
       nix
       cacert
       pythonEnv
