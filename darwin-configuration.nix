@@ -27,7 +27,7 @@ in
       direnv
       nix
       cacert
-      pythonEnv
+      # pythonEnv
       tree
     ];
 
